@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+[[ -z `which aws` ]] && echo "Error: AWS CLI is not installed." && exit 1
+
 regions=$(aws ec2 describe-regions --output text --query 'Regions[*].RegionName')
 ecs_opt="/aws/service/ecs/optimized-ami/amazon-linux/recommended/image_id"
 
